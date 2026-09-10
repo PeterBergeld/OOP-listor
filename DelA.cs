@@ -6,15 +6,71 @@ List<int> priser = new List<int>();
 
 varor.Add("Mjölk"); // då hamnar båda på index automatiskt
 priser.Add(15);
-int summa = 0;
+bool kör = true;
 
-for (int i =0; i <varor.Count; i++)
+while (kör  == true)
 {
- System.Console.WriteLine($"{varor[i]} har du {i + 1} och det {priser[i]} blir!");   
+    int summa = 0;
+    for (int i =0; i <varor.Count; i++) //från 0(1) varor räknar uppåt i++
+{
+ System.Console.WriteLine($"{varor[i]} har du {i + 1} och det {priser[i]} blir!");   // vid första exekveringen 
+ // blir nog detta som behöver fixas , get mig Mjölk har du 1 och det3 15 blir
+ // jag ber consolen att ta från variablen varor och priser 18:40 kommenterar ut och adderar 
+ // en ny: Mjölk har du 1 och det3 15 blir!
+ System.Console.WriteLine("Hur många varor har du och vad kostar det");
 summa += priser[i];
  
 }
 System.Console.WriteLine($"Totalt: {summa} kr");
+
+System.Console.WriteLine("1. Lägg till vara");
+System.Console.WriteLine("2. Ta bort vara");
+System.Console.WriteLine("3. Avsluta");
+string? svar = System.Console.ReadLine();
+int.TryParse(svar, out int val);
+if (val == 3)
+    {
+        kör = false;
+    }
+else if (val == 1)      //Viktigt att else if har egna {}
+    {
+        Console.WriteLine("Vad heter varan?");
+        //System.Console.WriteLine($"[namn] på varan?"); //Original för referens att mina två hjärnceller inte sammarbetar
+        string? namn = Console.ReadLine();
+     
+        
+        Console.WriteLine("Vad kostar varan?");
+        Console.WriteLine("Priset måste vara ett heltal,dumsnutt!.");
+
+        if (int.TryParse(Console.ReadLine(), out int pris)) // integer och värdet skickas in i pris
+    {
+    varor.Add(namn);
+    priser.Add(pris);
+    }
+}
+else if (val == 2) 
+        {
+            System.Console.WriteLine("Vilket nummer vill du ta bort");
+            int.TryParse(Console.ReadLine(),out int nummer); //Klarde jag utan ngn som helst hjälp!
+    
+            if (nummer >= 1 && nummer <= varor.Count)
+            System.Console.WriteLine("Ogiltigt nummer.");
+        {
+    
+        int index = nummer - 1; //nummer var grå innan, tappar bort mig när kod blir röd eller grey 
+            //blir så många omvända tillmötesvägar för mitt huvud
+        varor.RemoveAt(index);
+        priser.RemoveAt(index);
+    }
+}
+}
+
+// vid första exekveringen get den mig: Mjölk har du 1 och det3 15 blir!
+//Går upp till koden och korrigerar text men varför får jag mjölk? 
+
+
+
+
 
 
 
