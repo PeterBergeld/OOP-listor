@@ -16,10 +16,11 @@ while (kör  == true)
     for (int i =0; i <varor.Count; i++) //från 0(1) varor räknar uppåt i++
 {
  //System.Console.WriteLine($"{varor[i]} har du {i + 1} och det {priser[i]} blir!");   // vid första exekveringen 
- // blir nog detta som behöver fixas , ger mig:  Mjölk har du 1 och det3 15 blir i consolen.
+ // blir nog detta som behöver fixas , ger mig:  Mjölk har du 1 och det 15 blir i consolen.
  // Jag ber consolen att ta från variablen varor och priser 18:40 kommenterar och adderar 
  // en ny
- System.Console.WriteLine("Hur många varor har du och vad kostar det?");
+ System.Console.WriteLine($"{i + 1}. {varor[i]} - {priser[i]} ?"); //är indexet. varor[i] hämtar varan på den positionen 
+ //och priser[i] hämtar priset på samma position.
 summa += priser[i];
  
 }
@@ -28,9 +29,12 @@ System.Console.WriteLine($"Totalt: {summa} kr"); //CW + Tab är effektivt
 System.Console.WriteLine("1. Lägg till vara");
 System.Console.WriteLine("2. Ta bort vara");
 System.Console.WriteLine("3. Avsluta");
+System.Console.WriteLine("Vad väljer du");
 string? svar = System.Console.ReadLine();
-int.TryParse(svar, out int val);
-if (val == 3)
+if (int.TryParse(svar, out int val))
+    {
+        
+        if (val == 3)
     {
         kör = false;
     }
@@ -39,50 +43,81 @@ else if (val == 1)      //Viktigt att else if har egna {}
         Console.WriteLine("Vad heter varan?");
         //System.Console.WriteLine($"[namn] på varan?"); //Original för referens att mina två hjärnceller inte sammarbetar
         string? namn = Console.ReadLine();
-        string Tomater;
-        string Potatis;
-        string Socker;
      
         
         Console.WriteLine("Vad kostar varan?");
        
 
         if (int.TryParse(Console.ReadLine(), out int pris)) // integer och värdet skickas in i pris
-         //Console.WriteLine("Priset måste vara ett heltal,dumsnutt!."); // Skulle flyttas 
+         //Console.WriteLine("Priset måste vara ett heltal"); // Skulle flyttas 
          // ner till kostnad
 
     {
-    varor.Add(namn);
-    priser.Add(pris);
+         varor.Add(namn);
+         priser.Add(pris);
+    }
+            else
+            {
+                System.Console.WriteLine("Priset måste vara ett heltal");
+            }
+        
     }
 }
-else if (val == 2) 
-        {
-            System.Console.WriteLine("Vilket nummer vill du ta bort");
-           
-            int.TryParse(Console.ReadLine(),out int nummer); //Klarde jag utan ngn som helst hjälp!. 
-            //Men flyttade den under console för den ska konvertera
-            //först efter inputen från användaren. Annars skapades inte variablen
-                 // hade placerat munnen fel < skulle vara > för att få ut ogiltigt nummer
+else if (val == 2)
+{
+    System.Console.WriteLine("Vilket nummer vill du ta bort");
 
-        if (nummer >= 1 && nummer >= varor.Count) 
-        
-            System.Console.WriteLine("Ogiltigt nummer.");
-        {
-        
-            
-        {
-    
-        int index = nummer - 1; //nummer var grå innan, tappar bort mig när kod blir röd eller grey 
-            //blir så många omvända tillmötesvägar för mitt huvud
+    int.TryParse(Console.ReadLine(), out int nummer);
+
+    if (nummer >= 1 && nummer <= varor.Count)
+    {
+        int index = nummer - 1;
+
         varor.RemoveAt(index);
         priser.RemoveAt(index);
     }
+    else
+    {
+        System.Console.WriteLine("Ogiltigt nummer.");
+    }
 }
 }
-}
+
+
+
+
+// else if (val == 2) 
+//         {
+//             System.Console.WriteLine("Vilket nummer vill du ta bort");
+           
+//             int.TryParse(Console.ReadLine(),out int nummer); //Klarde jag utan ngn som helst hjälp!. 
+//             //Men flyttade den under console för den ska konvertera
+//             //först efter inputen från användaren. Annars skapades inte variablen
+//                  // hade placerat munnen fel < skulle vara > för att få ut ogiltigt nummer
+    
+//     if (nummer >= 1 && nummer <= varor.Count)
+//     {
+
+//         int index = nummer - 1; //nummer var grå innan, tappar bort mig när kod blir röd eller grey 
+//             //blir så många omvända tillmötesvägar för mitt huvud
+//         varor.RemoveAt(index);
+//         priser.RemoveAt(index);
+    
+// }
+// else
+
+//     System.Console.WriteLine("Ogiltigt nummer.");{}
+
+// {
+// }
+// }
+
+
+        
 // vid första exekveringen get den mig: Mjölk har du 1 och det3 15 blir!
 //Går upp till koden och korrigerar text men varför får jag mjölk? 
+
+//Vid forsatt efterforsnkning behöver jag få in en for loop också. 20:53
 
 
 
