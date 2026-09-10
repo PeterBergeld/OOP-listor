@@ -1,0 +1,4 @@
+#ignore all obj and bin
+
+*.obj
+*.bin
