@@ -1,7 +1,7 @@
 // insköpslistor
 
 // Början med lista. Vi ska gör en lista
-// En för text List<T> == List<string>;
+// En för text List<> == List<string>;
 // List<int> == för nummer
 //ingore.cs ska läggas till 
 //obj och ____ 
@@ -11,14 +11,16 @@
 List<string> varor = new List<strin>();
 List<decimal> prices = new List<decimal>();
 
-varor.Add("Mjölk");
-varor.Add("Vatten");
-varor.Add("Mannagryn");
+varor.Add("Mjölk"); //0         Här skappas index
+varor.Add("Vatten"); //1
+varor.Add("Mannagryn"); //2
 
 //Får add prices också. 
-prices.Add ("Mjölk");
+prices.Add ("Mjölk" , "Vatten");
 prices.Add("Vatten");
 prices.Add ("Mannagryn");
+ 
+
 
 while (choice  == 1 || choice == 2 )
 {
@@ -33,13 +35,28 @@ if (choice == 1 )
     int pris;
     int.TryParse(Console.ReadLine(), out pris);
     varor.Add(vara);
-    prices.Add(prices);
+    prices.Add(pris);
 }
 else if (choice == 2) ; // else if, ytterligare ett villkor
 //else--> allt annat, utan villkor
 {
     Console.WriteLine("Vilken vara vill du ta bort");
+    int nummer ;
+    int.TryParse(Console.ReadLine, out nummer);
+    int index = nummer - 1;
+    varor.RemoveAt(index);
+    prices.RemoveAt(index);
 }
+
+for (int i = 0; i < varor.Count; i++)
+{
+    varor[i];
+    prices[i];
+    //Denna kod blev krånglig för mig, fick sitta en stund. index nummret ska subtraheras
+    //Men här ska användarens input adderas. TRADIGT! 13:46
+    Console.WriteLine($"{i+1}. Du har {varor[i]} och det kostar {prices[i]} kr");
+}
+
 
 name[0] = "Mjölk, Vatten, Mannagryn";
 prices[0] = 20m;  30m; 50m; // Går detta ens ? hmm
