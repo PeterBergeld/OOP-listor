@@ -1,27 +1,29 @@
 
+using System.ComponentModel;
 using System.IO.Pipelines;
 
 List<string> varor = new List<string>();
 List<int> priser = new List<int>();
 
 varor.Add("Mjölk"); // då hamnar båda på index automatiskt
-priser.Add(15);
+priser.Add(0); 
 bool kör = true;
+
 
 while (kör  == true)
 {
     int summa = 0;
     for (int i =0; i <varor.Count; i++) //från 0(1) varor räknar uppåt i++
 {
- System.Console.WriteLine($"{varor[i]} har du {i + 1} och det {priser[i]} blir!");   // vid första exekveringen 
- // blir nog detta som behöver fixas , get mig Mjölk har du 1 och det3 15 blir
- // jag ber consolen att ta från variablen varor och priser 18:40 kommenterar ut och adderar 
- // en ny: Mjölk har du 1 och det3 15 blir!
- System.Console.WriteLine("Hur många varor har du och vad kostar det");
+ //System.Console.WriteLine($"{varor[i]} har du {i + 1} och det {priser[i]} blir!");   // vid första exekveringen 
+ // blir nog detta som behöver fixas , ger mig:  Mjölk har du 1 och det3 15 blir i consolen.
+ // Jag ber consolen att ta från variablen varor och priser 18:40 kommenterar och adderar 
+ // en ny
+ System.Console.WriteLine("Hur många varor har du och vad kostar det?");
 summa += priser[i];
  
 }
-System.Console.WriteLine($"Totalt: {summa} kr");
+System.Console.WriteLine($"Totalt: {summa} kr"); //CW + Tab är effektivt
 
 System.Console.WriteLine("1. Lägg till vara");
 System.Console.WriteLine("2. Ta bort vara");
@@ -37,12 +39,18 @@ else if (val == 1)      //Viktigt att else if har egna {}
         Console.WriteLine("Vad heter varan?");
         //System.Console.WriteLine($"[namn] på varan?"); //Original för referens att mina två hjärnceller inte sammarbetar
         string? namn = Console.ReadLine();
+        string Tomater;
+        string Potatis;
+        string Socker;
      
         
         Console.WriteLine("Vad kostar varan?");
-        Console.WriteLine("Priset måste vara ett heltal,dumsnutt!.");
+       
 
         if (int.TryParse(Console.ReadLine(), out int pris)) // integer och värdet skickas in i pris
+         //Console.WriteLine("Priset måste vara ett heltal,dumsnutt!."); // Skulle flyttas 
+         // ner till kostnad
+
     {
     varor.Add(namn);
     priser.Add(pris);
@@ -51,10 +59,18 @@ else if (val == 1)      //Viktigt att else if har egna {}
 else if (val == 2) 
         {
             System.Console.WriteLine("Vilket nummer vill du ta bort");
-            int.TryParse(Console.ReadLine(),out int nummer); //Klarde jag utan ngn som helst hjälp!
-    
-            if (nummer >= 1 && nummer <= varor.Count)
+           
+            int.TryParse(Console.ReadLine(),out int nummer); //Klarde jag utan ngn som helst hjälp!. 
+            //Men flyttade den under console för den ska konvertera
+            //först efter inputen från användaren. Annars skapades inte variablen
+                 // hade placerat munnen fel < skulle vara > för att få ut ogiltigt nummer
+
+        if (nummer >= 1 && nummer >= varor.Count) 
+        
             System.Console.WriteLine("Ogiltigt nummer.");
+        {
+        
+            
         {
     
         int index = nummer - 1; //nummer var grå innan, tappar bort mig när kod blir röd eller grey 
@@ -64,7 +80,7 @@ else if (val == 2)
     }
 }
 }
-
+}
 // vid första exekveringen get den mig: Mjölk har du 1 och det3 15 blir!
 //Går upp till koden och korrigerar text men varför får jag mjölk? 
 
