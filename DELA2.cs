@@ -1,7 +1,7 @@
 // Börja om från början, börja om på nytt, varför ska man......
 
 
-List<string> names = new List<string>(); // an expression req and argument list or in this case ()
+List<string> names = new List<string>(); // an expression req an argument list or in this case ()
 List<int> priser = new List<int>(); //Fortfarande lite konfys angående att grey visas under name innan den värderas, kolla upp colour.
 
 names.Add("Mjölk");
@@ -34,4 +34,16 @@ if (val == 1) ;
     System.Console.WriteLine("Vad heter varan");
     string? name = System.Console.ReadLine();
     System.Console.WriteLine("Vad kostar varan");
+}
+
+if (int.TryParse(Console.ReadLine(), out int pris))
+{
+    names.Add(namn);
+    priser.Add(pris);
+}
+
+else if (val == 2)
+{
+    System.Console.WriteLine("Vilket nummer vill du ta bort");
+    int.TryParse(Console.ReadLine(), out int nummer);
 }
