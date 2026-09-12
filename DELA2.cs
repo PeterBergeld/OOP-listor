@@ -30,17 +30,27 @@ string? svar = System.Console.ReadLine();
 int.TryParse(svar, out int val);
 
 if (val == 1) ;
+
 {
     System.Console.WriteLine("Vad heter varan");
+
     string? name = System.Console.ReadLine();
+
     System.Console.WriteLine("Vad kostar varan");
+
+
+    if (int.TryParse(Console.ReadLine(), out int pris))
+    {
+        names.Add(name);
+        priser.Add(pris);
+    }
+else
+    {
+        System.Console.WriteLine("Priset måste vara ett heltal");
+    }
 }
 
-if (int.TryParse(Console.ReadLine(), out int pris))
-{
-    names.Add(namn);
-    priser.Add(pris);
-}
+
 
 else if (val == 2)
 {
@@ -62,9 +72,17 @@ else
 
 else if (val == 3)
     {
-        
+        System.Console.WriteLine("Programmet avslutas"); // och där är grunfunktionerklara
+        break;
     }
-} //samt denna tas bor
+    
+ //samt } denna tas bort för att snygga till det
+
+
+
+
+
+
 
 
 
