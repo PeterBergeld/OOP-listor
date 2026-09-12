@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO.Pipelines;
 
+```csharp
 List<string> varor = new List<string>();
 List<int> priser = new List<int>();
 

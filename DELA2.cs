@@ -1,3 +1,4 @@
+
 // Börja om från början, börja om på nytt, varför ska man......
 
 
@@ -86,6 +87,8 @@ else if (val == 3)
  //samt } denna tas bort för att snygga till det
 
  // koden skickas in för koll i chatten
+
+
 
 
 
