@@ -17,6 +17,21 @@ for (int i =0; i< names.Count; i++)  // Visa varan och priset därav en for-loop
    
     System.Console.WriteLine($"{i+1}. {names[i]} - {priser[i]}");
     //System.Console.WriteLine($"{i+1}.{priser[i]}"); // Behöver inte vara med , för att de ska kopplas ihop
+    summa += priser[i];
     
 }
-    
+System.Console.WriteLine($"Totalt: {summa} kr");
+
+System.Console.WriteLine("1. Lägg till vara");
+System.Console.WriteLine("2. Ta bort vara");
+System.Console.WriteLine("3. Avsluta");
+
+string? svar = System.Console.ReadLine();
+int.TryParse(svar, out int val);
+
+if (val == 1) ;
+{
+    System.Console.WriteLine("Vad heter varan");
+    string? name = System.Console.ReadLine();
+    System.Console.WriteLine("Vad kostar varan");
+}
