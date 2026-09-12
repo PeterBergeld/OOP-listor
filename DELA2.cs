@@ -10,7 +10,13 @@ names.Add("Bröd");
 priser.Add(32);
 names.Add("Ost");
 priser.Add(89);
+while (true)
+{
+
 int summa = 0;
+
+
+    
 
 for (int i =0; i< names.Count; i++)  // Visa varan och priset därav en for-loop
 {
@@ -22,14 +28,14 @@ for (int i =0; i< names.Count; i++)  // Visa varan och priset därav en for-loop
 }
 System.Console.WriteLine($"Totalt: {summa} kr");
 
-System.Console.WriteLine("1. Lägg till vara");
+System.Console.WriteLine("1. Lägg till vara");// meny klar
 System.Console.WriteLine("2. Ta bort vara");
 System.Console.WriteLine("3. Avsluta");
 
 string? svar = System.Console.ReadLine();
 int.TryParse(svar, out int val);
 
-if (val == 1) ;
+if (val == 1) 
 
 {
     System.Console.WriteLine("Vad heter varan");
@@ -52,10 +58,10 @@ else
 
 
 
-else if (val == 2)
+else if (val == 2) // Om användaren väljer 2
 {
     System.Console.WriteLine("Vilket nummer vill du ta bort");
-    int.TryParse(Console.ReadLine(), out int nummer);
+    int.TryParse(Console.ReadLine(), out int nummer); //nummmer får värdet det väljer
 
     if (nummer >= 1 && nummer <= names.Count)
     {
@@ -72,11 +78,16 @@ else
 
 else if (val == 3)
     {
-        System.Console.WriteLine("Programmet avslutas"); // och där är grunfunktionerklara
+        System.Console.WriteLine("Programmet avslutas"); // och där är grunfunktionerna klara
         break;
     }
+}
     
  //samt } denna tas bort för att snygga till det
+
+ // koden skickas in för koll i chatten
+
+
 
 
 
