@@ -46,4 +46,26 @@ else if (val == 2)
 {
     System.Console.WriteLine("Vilket nummer vill du ta bort");
     int.TryParse(Console.ReadLine(), out int nummer);
-}
+
+    if (nummer >= 1 && nummer <= names.Count)
+    {
+        int index = nummer - 1; //från 0. om användaren väjer 2 
+        names.RemoveAt(index);
+        priser.RemoveAt(index);
+    }
+else
+    {
+        System.Console.WriteLine("Ogiltigt nummer");
+    }
+} //Denna blev tvubgen att lägas till, för att else ska hämna rätt i scopet för val två. Avskyr errors.
+
+
+else if (val == 3)
+    {
+        
+    }
+} //samt denna tas bor
+
+
+
+
